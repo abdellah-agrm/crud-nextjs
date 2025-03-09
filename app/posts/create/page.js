@@ -10,18 +10,6 @@ export default function CreatePost() {
   const [content, setContent] = useState('');
   const router = useRouter();
 
-  useEffect(() => {
-    const generateRandomId = () => {
-      const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-      let result = '';
-      for (let i = 0; i < 6; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return result;
-    };
-    setId(generateRandomId());
-  }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post("http://localhost:5000/posts", { id, title, content });
@@ -38,6 +26,18 @@ export default function CreatePost() {
 
         <div className="max-w-lg mx-auto p-8 bg-white rounded-xl shadow-lg border border-orange-100">
           <form onSubmit={handleSubmit}>
+            <div className="mb-6">
+              <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+              <input
+                type="number"
+                id="id"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                required
+              />
+            </div>
+
             <div className="mb-6">
               <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">Title</label>
               <input

@@ -50,7 +50,7 @@ export default function Posts() {
                     {item.id}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                    <Link href={"/posts/" + item.id} className="text-orange-600 hover:text-orange-800 font-medium">
+                    <Link href={"/posts/" + item.id} className="text-orange-600 hover:text-orange-800 font-medium hover:underline">
                       {item.title}
                     </Link>
                   </td>
